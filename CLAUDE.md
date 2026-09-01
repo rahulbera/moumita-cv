@@ -46,8 +46,10 @@ lag the sources.
   `contemporary`), `\colorlet{color1}{slateblue}` overriding
   `\moderncvcolor{blue}` with RGB 59, 77, 97 carried over from the
   previous design, and `\usepackage[scale=0.81]{geometry}` for density.
-  `scale=0.81` is deliberate: at `0.80` the CV spills a nearly empty
-  fourth page. Check the page count after any content change.
+  `scale=0.81` originally kept the CV off a nearly empty fourth page; once
+  the experience bullets were shortened that constraint stopped binding, so
+  the value is now just a density preference. Check the page count after any
+  content change.
 - **Don't invent CV content.** Employment history, dates, certifications
   and qualifications are matters of fact. Reword and reformat freely, but
   new facts come from Moumita, not from Claude.

@@ -43,9 +43,12 @@ lag the sources.
   email, photo.
 - **Layout knobs**, all in the preamble: `\moderncvstyle{classic}`
   (alternatives: `casual`, `banking`, `oldstyle`, `fancy`,
-  `contemporary`), `\colorlet{color1}{slateblue}` overriding
-  `\moderncvcolor{blue}` with RGB 59, 77, 97 carried over from the
-  previous design, and `\usepackage[scale=0.82]{geometry}` for density.
+  `contemporary`), `\colorlet{color1}{cvblue}` overriding
+  `\moderncvcolor{blue}` with RGB 21, 76, 143, and
+  `\usepackage[scale=0.82]{geometry}` for density. The heading colour needs
+  enough saturation to read as blue next to black body text — the original
+  slate (RGB 59, 77, 97, carried over from the previous design) was too
+  desaturated and looked black in print.
   `scale=0.82` is load-bearing: at `0.81` the three-line Systems section
   splits and orphans its "Productivity" line onto page 3. Check both the
   page count and the page-2/3 break after any content change — this kind of

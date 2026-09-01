@@ -36,7 +36,9 @@
 % works with the "sans" class option (bitmap fonts make pdflatex abort).
 \usepackage{lmodern}
 \usepackage[english]{babel}
-\usepackage[scale=0.81]{geometry}
+% scale=0.82 keeps the three-line Systems section whole on page 2; at 0.81
+% the "Productivity" line is orphaned onto page 3.
+\usepackage[scale=0.82]{geometry}
 
 % Width of the left-hand column that holds dates and item labels.
 \setlength{\hintscolumnwidth}{2.9cm}
@@ -125,7 +127,7 @@ matters.}
         potentially fraudulent activity, with the relevant internal teams.
 \end{itemize}}
 
-\cventry{Jul 2016 -- Sep 2022}{Deputy Manager / Assistant Manager}{Axis Bank Ltd.}{India}{\textit{Promoted}}{
+\cventry{Jul 2016 -- Sep 2022}{Deputy Manager / Assistant Manager}{Axis Bank Ltd.}{India}{\textit{(Promoted)}}{
 \begin{itemize}
   \item Progressed from Assistant Manager to Deputy Manager, taking on wider
         responsibility across relationship management, banking operations,

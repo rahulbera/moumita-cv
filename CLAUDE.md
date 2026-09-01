@@ -45,11 +45,11 @@ lag the sources.
   (alternatives: `casual`, `banking`, `oldstyle`, `fancy`,
   `contemporary`), `\colorlet{color1}{slateblue}` overriding
   `\moderncvcolor{blue}` with RGB 59, 77, 97 carried over from the
-  previous design, and `\usepackage[scale=0.81]{geometry}` for density.
-  `scale=0.81` originally kept the CV off a nearly empty fourth page; once
-  the experience bullets were shortened that constraint stopped binding, so
-  the value is now just a density preference. Check the page count after any
-  content change.
+  previous design, and `\usepackage[scale=0.82]{geometry}` for density.
+  `scale=0.82` is load-bearing: at `0.81` the three-line Systems section
+  splits and orphans its "Productivity" line onto page 3. Check both the
+  page count and the page-2/3 break after any content change — this kind of
+  orphan reappears easily.
 - **Don't invent CV content.** Employment history, dates, certifications
   and qualifications are matters of fact. Reword and reformat freely, but
   new facts come from Moumita, not from Claude.

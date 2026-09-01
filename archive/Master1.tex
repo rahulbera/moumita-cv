@@ -1,0 +1,690 @@
+\documentclass[10pt,A4,english]{article}
+
+%========================================================================================
+% PACKAGES
+%========================================================================================
+
+\usepackage[utf8]{inputenc}
+\usepackage[USenglish]{isodate}
+\usepackage{fancyhdr}
+\usepackage[numbers]{natbib}
+
+\usepackage{xstring,xifthen}
+\usepackage{enumitem}
+\usepackage[english]{babel}
+\usepackage{changepage}
+
+%----------------------------------------------------------------------------------------
+% FONT
+%----------------------------------------------------------------------------------------
+
+\usepackage[default]{raleway}
+\renewcommand*\familydefault{\sfdefault}
+\usepackage[T1]{fontenc}
+\usepackage{moresize}
+
+%----------------------------------------------------------------------------------------
+% FONT AWESOME
+%----------------------------------------------------------------------------------------
+
+\usepackage{fontawesome}
+
+\newcommand{\vcenteredinclude}[1]{%
+    \begingroup
+    \setbox0=\hbox{\includegraphics{#1}}%
+    \parbox{\wd0}{\box0}%
+    \endgroup
+}
+
+\newcommand{\tab}[1]{\hspace{.2\textwidth}\rlap{#1}}
+
+\newcommand*{\vcenteredhbox}[1]{%
+    \begingroup
+    \setbox0=\hbox{#1}%
+    \parbox{\wd0}{\box0}%
+    \endgroup
+}
+
+\newcommand{\icon}[3]{
+    \makebox(#2,#2){\textcolor{maincol}{\csname fa#1\endcsname}}
+}
+
+\newcommand{\icontext}[4]{
+    \vcenteredhbox{\icon{#1}{#2}{#3}}
+    \hspace{2pt}
+    \parbox{0.9\mpwidth}{\textcolor{#4}{#3}}
+}
+
+\newcommand{\iconhref}[5]{
+    \vcenteredhbox{\icon{#1}{#2}{#5}}
+    \hspace{2pt}
+    \href{#4}{\textcolor{#5}{#3}}
+}
+
+\newcommand{\iconemail}[5]{
+    \vcenteredhbox{\icon{#1}{#2}{#5}}
+    \hspace{2pt}
+    \href{mailto:#4}{\textcolor{#5}{#3}}
+}
+
+%========================================================================================
+% PAGE LAYOUT
+%========================================================================================
+
+\usepackage{paracol}
+\usepackage{tikzpagenodes}
+\usetikzlibrary{calc}
+\usepackage{lmodern}
+\usepackage{multicol}
+\usepackage{atbegshi}
+
+\usepackage[a4paper]{geometry}
+
+% Slightly tighter than the original template
+\geometry{
+    top=0.85cm,
+    bottom=0.85cm,
+    left=1cm,
+    right=1cm
+}
+
+\pagestyle{empty}
+\setlength{\parindent}{0mm}
+
+%========================================================================================
+% GRAPHICS / COLOUR
+%========================================================================================
+
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{ragged2e}
+
+\usetikzlibrary{shapes,backgrounds,mindmap,trees}
+
+\usepackage{transparent}
+\usepackage{color}
+
+\definecolor{maincol}{RGB}{64,64,64}
+\definecolor{darkcol}{RGB}{70,70,70}
+\definecolor{lightcol}{RGB}{245,245,245}
+\definecolor{accentcol}{RGB}{59,77,97}
+
+%========================================================================================
+% HYPERLINKS
+%========================================================================================
+
+\usepackage[hidelinks]{hyperref}
+
+%========================================================================================
+% WIDTH
+%========================================================================================
+
+\newcommand{\mpwidth}{\linewidth-\fboxsep-\fboxsep}
+
+%========================================================================================
+% GENERAL CV TEXT
+%========================================================================================
+
+\newcommand{\cvtext}[1]{
+    \begin{tabular*}{1\mpwidth}{p{0.98\mpwidth}}
+        \parbox{1\mpwidth}{#1}
+    \end{tabular*}
+}
+
+%========================================================================================
+% SECTION HEADING
+%========================================================================================
+
+\newcommand{\cvsection}[1]{
+    \vspace{7pt}
+    \cvtext{
+        \textbf{\Large{\textcolor{darkcol}{#1}}}\\[-4pt]
+        \textcolor{accentcol}{\rule{0.20\textwidth}{1.5pt}}
+    }
+}
+
+%========================================================================================
+% SIDEBAR EVENT
+%========================================================================================
+
+\newcommand{\cvmetaevent}[4]{
+
+    \textcolor{maincol}{
+        \cvtext{
+            \textbf{\begin{flushleft}#1\end{flushleft}}
+        }
+    }
+
+    \ifthenelse{\isempty{#2}}{}{
+        \textcolor{black}{
+            \cvtext{\textbf{#2}}
+        }
+    }
+
+    \ifthenelse{\isempty{#3}}{}{
+        \cvtext{\textcolor{maincol}{#3}}
+    }
+
+    \cvtext{#4}
+
+    \vspace{3pt}
+}
+
+%========================================================================================
+% EXPERIENCE BULLETS
+%========================================================================================
+
+\newenvironment{experiencebullets}{
+    \begin{itemize}[
+        leftmargin=1.15em,
+        label=\textcolor{accentcol}{\small\textbullet},
+        itemsep=2.2pt,
+        topsep=1pt,
+        parsep=0pt,
+        partopsep=0pt
+    ]
+}{
+    \end{itemize}
+}
+
+%========================================================================================
+% EXPERIENCE EVENT
+%========================================================================================
+
+\newcommand{\cvevent}[4]{
+
+    \parbox{\mpwidth}{
+
+        \begin{tabular*}{1\mpwidth}{p{0.67\mpwidth} r}
+
+            \textcolor{black}{\textbf{#2}}
+            &
+            \colorbox{accentcol}{
+                \makebox[0.31\mpwidth]{
+                    \textcolor{white}{\textbf{#1}}
+                }
+            }
+            \\[2pt]
+
+            \textcolor{maincol}{#3}
+            &
+
+        \end{tabular*}
+
+        \vspace{2pt}
+
+        {\small
+        #4
+        }
+
+    }
+
+    \vspace{4pt}
+}
+
+%========================================================================================
+% HEADER / FOOTER
+%========================================================================================
+
+\newcommand\Header[1]{%
+\begin{tikzpicture}[remember picture,overlay]
+
+\fill[accentcol]
+(current page.north west)
+--
+(current page.north east)
+--
+([yshift=50pt]current page.north east|-current page text area.north east)
+--
+([yshift=50pt,xshift=-3cm]current page.north|-current page text area.north)
+--
+([yshift=10pt,xshift=-5cm]current page.north|-current page text area.north)
+--
+([yshift=10pt]current page.north west|-current page text area.north west)
+--
+cycle;
+
+\node[
+    font=\sffamily\bfseries\color{white},
+    anchor=west,
+    xshift=0.7cm,
+    yshift=-0.32cm
+]
+at (current page.north west)
+{\fontsize{12}{12}\selectfont #1};
+
+\end{tikzpicture}%
+}
+
+\newcommand\Footer[1]{%
+\begin{tikzpicture}[remember picture,overlay]
+
+\fill[lightcol]
+(current page.south east)
+--
+(current page.south west)
+--
+([yshift=-80pt]current page.south east|-current page text area.south east)
+--
+([yshift=-80pt,xshift=-6cm]current page.south|-current page text area.south)
+--
+([xshift=-2.5cm,yshift=-10pt]current page.south|-current page text area.south)
+--
+([yshift=-10pt]current page.south east|-current page text area.south east)
+--
+cycle;
+
+\node[
+    yshift=0.32cm,
+    xshift=9cm
+]
+at (current page.south)
+{\fontsize{10}{10}\selectfont\textbf{\thepage}};
+
+\end{tikzpicture}%
+}
+
+%========================================================================================
+% DOCUMENT
+%========================================================================================
+
+\begin{document}
+
+\columnratio{0.31}
+\setlength{\columnsep}{2.2em}
+\setlength{\columnseprule}{4pt}
+\colseprulecolor{lightcol}
+
+%========================================================================================
+% PAGE 1
+%========================================================================================
+
+\AtBeginShipoutFirst{\Header{CURRICULUM VITAE}\Footer{1}}
+
+\begin{paracol}{2}
+
+%========================================================================================
+% LEFT COLUMN
+%========================================================================================
+
+\begin{leftcolumn}
+
+%----------------------------------------------------------------------------------------
+% PHOTO
+%----------------------------------------------------------------------------------------
+
+\includegraphics[
+    width=\linewidth,
+    height=5.0cm,
+    keepaspectratio
+]{resources/image.jpg}
+
+%----------------------------------------------------------------------------------------
+% NAME
+%----------------------------------------------------------------------------------------
+
+\fcolorbox{white}{white}{
+\begin{minipage}[c][1.25cm][c]{1\mpwidth}
+
+\LARGE{
+\textbf{\textcolor{maincol}{Moumita Dey}}
+}
+
+\\[2pt]
+
+\normalsize{
+\textcolor{maincol}{
+Banking \& Wealth Management
+}
+}
+
+\end{minipage}
+}
+
+%----------------------------------------------------------------------------------------
+% PERSONAL DETAILS
+%----------------------------------------------------------------------------------------
+
+\icontext{MapMarker}{12}
+{Zurich, Switzerland}
+{black}
+\\[4pt]
+
+\icontext{CaretRight}{12}
+{Swiss Permit B}
+{black}
+\\[4pt]
+
+\icontext{CaretRight}{12}
+{18 January 1993}
+{black}
+
+%----------------------------------------------------------------------------------------
+% CONTACT
+%----------------------------------------------------------------------------------------
+
+\cvsection{Contact}
+
+\icontext{MobilePhone}{15}
+{+41 767111639}
+{black}
+\\[4pt]
+
+\iconemail{Envelope}{15}
+{reachmoumita.93@gmail.com}
+{your.email@email.com}
+{black}
+
+%----------------------------------------------------------------------------------------
+% KEY SKILLS
+%----------------------------------------------------------------------------------------
+
+\cvsection{Key Skills}
+
+\cvtext{
+\textbf{KYC \& CDD}\\
+Customer onboarding\\
+KYC remediation\\
+Periodic KYC refresh\\
+Source of Funds / Source of Wealth\\
+PEP \& sanctions screening\\
+UBO verification\\
+FATCA / CRS\\
+AML escalation\\
+Customer risk review
+}
+
+\vspace{3pt}
+
+\cvtext{
+\textbf{Banking \& Client Service}\\
+HNW / affluent banking\\
+Client lifecycle management\\
+Banking operations\\
+Wealth management\\
+Foreign exchange\\
+Digital banking\\
+Fraud \& card operations
+}
+
+%----------------------------------------------------------------------------------------
+% LANGUAGES
+%----------------------------------------------------------------------------------------
+
+\cvsection{Languages}
+
+\cvtext{
+\textbf{English} -- Fluent\\[2pt]
+\textbf{German} -- B1\\[2pt]
+\textbf{Hindi} -- Fluent\\[2pt]
+\textbf{Bengali} -- Native
+}
+
+%----------------------------------------------------------------------------------------
+% SYSTEMS
+%----------------------------------------------------------------------------------------
+
+\cvsection{Systems}
+
+\cvtext{
+\textbf{Core Banking:} Finacle\\[2pt]
+\textbf{CRM:} CRM platforms\\[2pt]
+\textbf{Productivity:} Microsoft Excel, Word, PowerPoint, Outlook
+}
+
+\end{leftcolumn}
+
+%========================================================================================
+% RIGHT COLUMN - PAGE 1
+%========================================================================================
+
+\begin{rightcolumn}
+
+%----------------------------------------------------------------------------------------
+% PROFESSIONAL PROFILE
+%----------------------------------------------------------------------------------------
+
+\cvsection{Professional Profile}
+
+\cvtext{
+
+Banking and Wealth Management professional with 9+ years of experience across High Net Worth and affluent client management, customer onboarding, KYC, customer due diligence, AML-related processes, fraud and card operations, digital banking and general banking services.
+
+Experienced in reviewing customer information and supporting documentation, resolving KYC gaps, supporting Source of Funds and Source of Wealth requirements, PEP and sanctions screening, UBO verification, FATCA/CRS requirements and AML escalations. Strong client-facing background with practical experience coordinating with customers, Operations, Compliance and other internal stakeholders to resolve documentation, transaction and service-related matters.
+
+}
+
+%----------------------------------------------------------------------------------------
+% PROFESSIONAL EXPERIENCE
+%----------------------------------------------------------------------------------------
+
+\cvsection{Professional Experience}
+
+%----------------------------------------------------------------------------------------
+% INDUSIND
+%----------------------------------------------------------------------------------------
+
+\cvevent
+{Dec 2023 -- Mar 2025}
+{Chief Manager}
+{IndusInd Bank Ltd. \newline India}
+{
+\begin{experiencebullets}
+
+\item Managed relationships with affluent and High Net Worth clients, providing end-to-end support across account servicing, banking products, transaction-related requests and ongoing client lifecycle requirements.
+
+\item Supported KYC verification, remediation and periodic KYC refresh activities by reviewing customer information and supporting documentation, identifying gaps and coordinating with customers and internal teams to complete required updates.
+
+\item Supported Source of Funds and Source of Wealth reviews by obtaining relevant customer information and documentation and coordinating with internal stakeholders where further clarification was required.
+
+\item Supported PEP and sanctions screening, UBO verification and FATCA/CRS-related requirements during customer onboarding and ongoing relationship servicing, ensuring relevant information and documentation were available for internal review.
+
+\item Identified and escalated customer or transaction-related concerns to appropriate internal teams where activity, documentation or customer information required additional AML or compliance assessment.
+
+\item Handled customer-reported unauthorised and suspicious card transactions, supporting card blocking, replacement, disputes and chargeback processes while coordinating with relevant fraud and operations teams.
+
+\item Supported customers with Internet and Mobile Banking, including authentication, OTP/token, beneficiary and password-related issues, while resolving complex service requests through internal coordination.
+
+\item Used CRM, Finacle and Microsoft Excel to maintain customer information, track service requirements and support accurate operational and client documentation.
+
+\item Supported colleagues through knowledge sharing and on-the-job training on banking processes, products, customer servicing and operational procedures.
+
+\end{experiencebullets}
+}
+
+%----------------------------------------------------------------------------------------
+% HDFC
+%----------------------------------------------------------------------------------------
+
+\cvevent
+{Oct 2022 -- Feb 2023}
+{Manager}
+{HDFC Bank Ltd. \newline India}
+{
+\begin{experiencebullets}
+
+\item Managed customer relationships and supported account opening, account maintenance and ongoing customer servicing, ensuring required documentation and banking procedures were followed.
+
+\item Reviewed customer documentation and supported KYC and customer due diligence requirements during onboarding and ongoing account servicing, including resolution of documentation gaps.
+
+\item Supported KYC remediation and periodic customer information updates by coordinating with customers and relevant internal teams where additional information was required.
+
+\item Supported customers across deposits, fixed deposits, loans, insurance and investment-related banking products while maintaining accurate customer records and service documentation.
+
+\item Handled card, transaction and digital banking issues, including potentially fraudulent or unauthorised activity, and coordinated with relevant internal teams for appropriate resolution.
+
+\end{experiencebullets}
+}
+
+\end{rightcolumn}
+
+\newpage
+
+%========================================================================================
+% PAGE 2
+%========================================================================================
+
+\AtBeginShipout{\AtBeginShipoutAddToBox{\Header{CURRICULUM VITAE}\Footer{2}}}
+
+\begin{paracol}{2}
+
+%========================================================================================
+% LEFT COLUMN - PAGE 2
+%========================================================================================
+
+\begin{leftcolumn}
+
+%----------------------------------------------------------------------------------------
+% CERTIFICATIONS
+%----------------------------------------------------------------------------------------
+
+
+
+
+\cvsection{Certifications}
+
+\cvmetaevent
+{2026}
+{Prevention of Money Laundering -- AMLA/AMLO-FINMA 2025}
+{Swiss Learning Hub / SAQ-recognised}
+{Completed February 2026.}
+
+\cvmetaevent
+{2026}
+{Combating Terrorism Financing}
+{International Centre for Asset Recovery, Basel Institute on Governance}
+{Completed May 2026.}
+
+\cvmetaevent
+{2026}
+{Introduction to Risk Management}
+{}
+{2.60 CPE Credits. Completed March 2026.}
+
+\cvmetaevent
+{2026}
+{Banking \& Insurance Business: AML, KYC, NAIC, IFRS}
+{}
+{4.40 CPE Credits. Completed March 2026.}
+
+%----------------------------------------------------------------------------------------
+% EDUCATION
+%----------------------------------------------------------------------------------------
+
+\cvsection{Education}
+
+\cvmetaevent
+{2014 -- 2016}
+{Master of Arts -- Linguistics}
+{University of Calcutta}
+{}
+
+\cvmetaevent
+{2011 -- 2014}
+{Bachelor of Arts -- English Literature (Honors)}
+{Bethune College}
+{}
+
+%----------------------------------------------------------------------------------------
+% ADDITIONAL
+%----------------------------------------------------------------------------------------
+
+\cvsection{Additional}
+
+\cvtext{
+\textbf{Work Authorisation}\\
+Swiss Permit B\\[4pt]
+
+\textbf{References}\\
+Available upon request
+}
+
+\end{leftcolumn}
+
+%========================================================================================
+% RIGHT COLUMN - PAGE 2
+%========================================================================================
+
+\begin{rightcolumn}
+
+%----------------------------------------------------------------------------------------
+% AXIS BANK
+%----------------------------------------------------------------------------------------
+
+\cvsection{Professional Experience}
+
+\cvevent
+{Jul 2016 -- Sep 2022}
+{Deputy Manager / Assistant Manager \textbf{(Promoted)}}
+{Axis Bank Ltd. \newline India}
+{
+\begin{experiencebullets}
+
+\item Progressed from Assistant Manager to Deputy Manager during my tenure, taking on increasing responsibility across client relationship management, banking operations, compliance-related processes and customer servicing.
+
+\item Managed affluent and High Net Worth customer relationships and supported a broad range of banking and wealth-management requirements, including accounts, deposits, lending, investments, insurance, foreign exchange and remittances.
+
+\item Handled customer onboarding, account opening, account closure and account maintenance, ensuring customer information and supporting documentation were complete and aligned with applicable banking procedures.
+
+\item Supported KYC verification, remediation and periodic KYC refresh activities by reviewing customer information and documentation, identifying discrepancies or missing information and coordinating with customers and internal teams to complete required updates.
+
+\item Supported Source of Funds and Source of Wealth requirements by gathering relevant customer information and documentation and coordinating with appropriate internal teams where additional clarification was required.
+
+\item Supported PEP and sanctions screening, UBO verification and FATCA/CRS-related customer information requirements as part of onboarding and ongoing relationship servicing.
+
+\item Escalated AML-related concerns and unusual or suspicious customer activity to the relevant internal teams in accordance with established procedures.
+
+\item Handled customer-reported card fraud and unauthorised transactions, supporting card blocking, replacement, disputes and chargeback processes and coordinating with relevant fraud and operations teams.
+
+\item Worked with Visa, Mastercard and RuPay-related card transactions and supported card issuance, re-issuance and card-security processes including tokenisation and 3D Secure requirements.
+
+\item Supported customers with Internet and Mobile Banking, including activation, authentication, OTP/token issues, password resets, beneficiary additions and troubleshooting of digital banking requests.
+
+\item Provided customer support across cheques, demand drafts, remittances, loans, deposits, fixed deposits, insurance, investment products, foreign exchange and wealth-management services.
+
+\item Used CRM and Finacle to maintain customer information and support operational and client-servicing activities, while using Excel for record management and day-to-day analysis.
+
+\item Supported the training and mentoring of colleagues by sharing knowledge of banking processes, products, customer servicing and operational procedures.
+
+\end{experiencebullets}
+}
+
+%----------------------------------------------------------------------------------------
+% ADDITIONAL PROFESSIONAL STRENGTHS
+%----------------------------------------------------------------------------------------
+
+\cvsection{Additional Professional Strengths}
+
+\cvtext{
+
+\textbf{Client \& Stakeholder Coordination:}
+Experienced in communicating with customers to obtain required information and documentation and coordinating with Operations, Compliance, Fraud and other internal stakeholders to resolve complex cases and service requirements.
+
+\vspace{3pt}
+
+\textbf{Documentation \& Record Accuracy:}
+Experienced in maintaining accurate customer records, reviewing supporting documentation and following established banking procedures when handling onboarding, KYC, transaction, fraud and servicing requirements.
+
+\vspace{3pt}
+
+\textbf{Training \& Knowledge Sharing:}
+Experienced in supporting and training colleagues on banking processes, products, customer servicing and operational procedures through practical, on-the-job guidance.
+
+}
+
+%----------------------------------------------------------------------------------------
+% REFERENCES
+%----------------------------------------------------------------------------------------
+
+\cvsection{References}
+
+\cvtext{
+Available upon request.
+}
+
+\end{rightcolumn}
+
+\end{paracol}
+
+\end{document}

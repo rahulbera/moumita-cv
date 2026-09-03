@@ -37,9 +37,8 @@
 % works with the "sans" class option (bitmap fonts make pdflatex abort).
 \usepackage{lmodern}
 \usepackage[english]{babel}
-% scale=0.82 keeps each section whole across the page-2/3 break: page 2 ends
-% after Certifications, page 3 opens at Education. At 0.80 the Certifications
-% section splits across the break instead.
+% Overall density. Page breaks are held by \cvsection below, not by this
+% value, so it can be tuned without stranding a section heading.
 \usepackage[scale=0.82]{geometry}
 
 % Width of the left-hand column that holds dates and item labels.
@@ -47,6 +46,11 @@
 
 % Tighter spacing between the bullets inside a \cventry description.
 \usepackage{enumitem}
+% moderncv's \section reserves no space, so a heading can strand at the foot
+% of a page with its entries overleaf. \needspace before each section demands
+% room for the heading plus a first entry, or moves the whole section over.
+\usepackage{needspace}
+\newcommand{\cvsection}[1]{\needspace{5\baselineskip}\section{#1}}
 \setlist[itemize]{leftmargin=1.2em,topsep=2pt,itemsep=1pt,parsep=0pt,partopsep=0pt}
 \setlength{\parskip}{0pt}
 
@@ -75,7 +79,7 @@
 %------------------------------------------------------------------------------
 % PROFESSIONAL PROFILE
 %------------------------------------------------------------------------------
-\section{Professional Profile}
+\cvsection{Professional Profile}
 
 \cvitem{}{Banking and Wealth Management professional with nearly 9 years of experience
 across High Net Worth and affluent client management, customer onboarding, KYC,
@@ -93,7 +97,7 @@ matters.}
 %------------------------------------------------------------------------------
 % PROFESSIONAL EXPERIENCE
 %------------------------------------------------------------------------------
-\section{Professional Experience}
+\cvsection{Professional Experience}
 
 \cventry{Dec'23 -- Mar'25}{Chief Manager}{IndusInd Bank Ltd.}{Bengaluru, India}{}{
 \begin{itemize}
@@ -102,7 +106,7 @@ matters.}
         requests.
   \item Ran KYC verification, remediation and periodic refresh: reviewed
         customer documentation, identified gaps and closed them with customers
-        and internal teams, reducing documentation errors by 25\%.
+        and internal teams.
   \item Gathered Source of Funds and Source of Wealth documentation and
         supported PEP and sanctions screening, UBO verification and FATCA/CRS
         requirements at onboarding and throughout the relationship.
@@ -130,8 +134,7 @@ matters.}
         onboarding and during servicing, resolving gaps and completing periodic
         information updates.
   \item Maintained audit-ready customer records and supported internal
-        compliance reviews, and worked with cross-functional teams to improve
-        onboarding efficiency, reducing turnaround time by 20\%.
+        compliance reviews.
   \item Advised customers across deposits, fixed deposits, loans, insurance and
         investment products while maintaining accurate records.
   \item Resolved card, transaction and digital banking issues, including
@@ -177,7 +180,7 @@ matters.}
 %------------------------------------------------------------------------------
 % CERTIFICATIONS
 %------------------------------------------------------------------------------
-\section{Certifications}
+\cvsection{Certifications}
 
 \cventry{2026}{Prevention of Money Laundering -- AMLA/AMLO-FINMA 2025}{Swiss Learning Hub}{SAQ-recognised}{}{Completed February 2026.}
 
@@ -190,7 +193,7 @@ matters.}
 %------------------------------------------------------------------------------
 % EDUCATION
 %------------------------------------------------------------------------------
-\section{Education}
+\cvsection{Education}
 
 \cventry{2014 -- 2016}{Master of Arts in Linguistics}{University of Calcutta}{India}{}{}
 
@@ -199,7 +202,7 @@ matters.}
 %------------------------------------------------------------------------------
 % KEY SKILLS
 %------------------------------------------------------------------------------
-\section{Key Skills}
+\cvsection{Key Skills}
 
 \cvitem{KYC \& CDD}{Customer onboarding \textbullet{} KYC remediation \textbullet{}
 Periodic KYC refresh \textbullet{} Source of Funds / Source of Wealth \textbullet{}
@@ -214,7 +217,7 @@ management \textbullet{} Foreign exchange \textbullet{} Digital banking
 %------------------------------------------------------------------------------
 % SYSTEMS
 %------------------------------------------------------------------------------
-\section{Systems}
+\cvsection{Systems}
 
 \cvitem{Core Banking}{Finacle, Oracle FlexCube}
 \cvitem{Productivity}{Microsoft Excel, Word, PowerPoint, Outlook}
@@ -222,7 +225,7 @@ management \textbullet{} Foreign exchange \textbullet{} Digital banking
 %------------------------------------------------------------------------------
 % LANGUAGES
 %------------------------------------------------------------------------------
-\section{Languages}
+\cvsection{Languages}
 
 \cvitemwithcomment{English}{Fluent}{}
 \cvitemwithcomment{German}{B1}{}
@@ -232,7 +235,7 @@ management \textbullet{} Foreign exchange \textbullet{} Digital banking
 %------------------------------------------------------------------------------
 % ADDITIONAL PROFESSIONAL STRENGTHS
 %------------------------------------------------------------------------------
-\section{Additional Professional Strengths}
+\cvsection{Additional Professional Strengths}
 
 \cvitem{Client \& Stakeholder Coordination}{Experienced in communicating with
 customers to obtain required information and documentation and coordinating with
@@ -253,7 +256,7 @@ procedures through practical, on-the-job guidance.}
 %------------------------------------------------------------------------------
 % Work authorisation (Swiss Permit B) is already stated in the header via
 % \extrainfo, so it is not repeated here.
-\section{References}
+\cvsection{References}
 
 \cvitem{}{Available upon request.}
 

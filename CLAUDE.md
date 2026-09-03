@@ -49,10 +49,11 @@ lag the sources.
   enough saturation to read as blue next to black body text — the original
   slate (RGB 59, 77, 97, carried over from the previous design) was too
   desaturated and looked black in print.
-  `scale=0.82` is load-bearing: at `0.81` the three-line Systems section
-  splits and orphans its "Productivity" line onto page 3. Check both the
-  page count and the page-2/3 break after any content change — this kind of
-  orphan reappears easily.
+  `scale=0.82` is load-bearing: it keeps each section whole across the
+  page-2/3 break (page 2 ends after Certifications, page 3 opens at
+  Education), where `0.80` splits Certifications across it. Check both the
+  page count and the page-2/3 break after any content change — a section
+  splitting or orphaning a single line there reappears easily.
 - **Don't invent CV content.** Employment history, dates, certifications
   and qualifications are matters of fact. Reword and reformat freely, but
   new facts come from Moumita, not from Claude.

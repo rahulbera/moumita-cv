@@ -37,8 +37,9 @@
 % works with the "sans" class option (bitmap fonts make pdflatex abort).
 \usepackage{lmodern}
 \usepackage[english]{babel}
-% scale=0.82 keeps the three-line Systems section whole on page 2; at 0.81
-% the "Productivity" line is orphaned onto page 3.
+% scale=0.82 keeps each section whole across the page-2/3 break: page 2 ends
+% after Certifications, page 3 opens at Education. At 0.80 the Certifications
+% section splits across the break instead.
 \usepackage[scale=0.82]{geometry}
 
 % Width of the left-hand column that holds dates and item labels.
@@ -94,44 +95,50 @@ matters.}
 %------------------------------------------------------------------------------
 \section{Professional Experience}
 
-\cventry{Dec'23 -- Mar'25}{Chief Manager}{IndusInd Bank Ltd.}{India}{}{
+\cventry{Dec'23 -- Mar'25}{Chief Manager}{IndusInd Bank Ltd.}{Bengaluru, India}{}{
 \begin{itemize}
-  \item Managed affluent and High Net Worth client relationships end to end,
-        across account servicing, banking products and transaction requests.
+  \item Managed affluent, High Net Worth and corporate client relationships
+        end to end, across account servicing, banking products and transaction
+        requests.
   \item Ran KYC verification, remediation and periodic refresh: reviewed
         customer documentation, identified gaps and closed them with customers
-        and internal teams.
+        and internal teams, reducing documentation errors by 25\%.
   \item Gathered Source of Funds and Source of Wealth documentation and
         supported PEP and sanctions screening, UBO verification and FATCA/CRS
         requirements at onboarding and throughout the relationship.
-  \item Escalated customer and transaction concerns for further AML and
-        compliance assessment.
+  \item Escalated customer and transaction concerns to Compliance,
+        Operations and Internal Audit for further AML assessment.
   \item Handled unauthorised and suspicious card transactions -- blocking,
         replacement, disputes and chargebacks -- with fraud and operations
         teams.
   \item Resolved Internet and Mobile Banking issues spanning authentication,
         OTP/token, beneficiary and password requests.
-  \item Maintained customer records and service tracking in CRM, Finacle and
-        Excel.
+  \item Maintained customer records and service tracking in Finacle, Oracle
+        FlexCube, CRM and Excel.
   \item Trained colleagues on banking processes, products and customer
         servicing.
 \end{itemize}}
 
-\cventry{Oct'22 -- Feb'23}{Manager}{HDFC Bank Ltd.}{India}{}{
+\cventry{Oct'22 -- Feb'23}{Manager}{HDFC Bank Ltd.}{Bengaluru, India}{}{
 \begin{itemize}
   \item Managed customer relationships and handled account opening,
         maintenance and servicing in line with required documentation
         standards.
+  \item Applied a risk-based approach during customer onboarding and
+        identified cases requiring enhanced review.
   \item Reviewed customer documentation for KYC and customer due diligence at
         onboarding and during servicing, resolving gaps and completing periodic
         information updates.
+  \item Maintained audit-ready customer records and supported internal
+        compliance reviews, and worked with cross-functional teams to improve
+        onboarding efficiency, reducing turnaround time by 20\%.
   \item Advised customers across deposits, fixed deposits, loans, insurance and
         investment products while maintaining accurate records.
   \item Resolved card, transaction and digital banking issues, including
         potentially fraudulent activity, with the relevant internal teams.
 \end{itemize}}
 
-\cventry{Jul'16 -- Sep'22}{Deputy Manager / Assistant Manager}{Axis Bank Ltd.}{India \textit{(Promoted)}}{}{
+\cventry{Jul'16 -- Sep'22}{Deputy Manager / Assistant Manager}{Axis Bank Ltd.}{Bengaluru, India \textit{(Promoted)}}{}{
 \begin{itemize}
   \item Progressed from Assistant Manager to Deputy Manager, taking on wider
         responsibility across relationship management, banking operations,
@@ -144,9 +151,13 @@ matters.}
   \item Ran KYC verification, remediation and periodic refresh: reviewed
         documentation, identified discrepancies and closed gaps with customers
         and internal teams.
+  \item Managed Customer Identification Program (CIP) activities for new
+        client relationships.
+  \item Verified Ultimate Beneficial Ownership for legal entities including
+        LLPs and private trusts, and conducted PEP, sanctions and adverse media
+        screening in line with internal compliance procedures.
   \item Gathered Source of Funds and Source of Wealth documentation and
-        supported PEP and sanctions screening, UBO verification and FATCA/CRS
-        requirements.
+        supported FATCA/CRS requirements.
   \item Escalated AML concerns and unusual or suspicious activity in line with
         established procedures.
   \item Handled card fraud and unauthorised transactions across Visa,
@@ -157,6 +168,8 @@ matters.}
         additions.
   \item Maintained customer information in CRM and Finacle, using Excel for
         record management and day-to-day analysis.
+  \item Ensured branch operations complied with RBI regulations and internal
+        banking policies.
   \item Trained and mentored colleagues on banking processes, products,
         customer servicing and operational procedures.
 \end{itemize}}
@@ -203,8 +216,7 @@ management \textbullet{} Foreign exchange \textbullet{} Digital banking
 %------------------------------------------------------------------------------
 \section{Systems}
 
-\cvitem{Core Banking}{Finacle}
-\cvitem{CRM}{CRM platforms}
+\cvitem{Core Banking}{Finacle, Oracle FlexCube}
 \cvitem{Productivity}{Microsoft Excel, Word, PowerPoint, Outlook}
 
 %------------------------------------------------------------------------------

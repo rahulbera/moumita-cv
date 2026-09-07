@@ -77,6 +77,11 @@ Moumita has confirmed the CV is the source of truth for dates, over both
   Manager — that split is fine to keep there, since the combined CV entry
   names the promotion in its first bullet and carries a `(Promoted)` note.
 
+- **FilmSpeak is off both documents.** Her LinkedIn carried a freelance
+  content-writing entry, Jan 2015 -- May 2022, overlapping her banking
+  roles; it was never on the CV and she has chosen to delete it from
+  LinkedIn. Do not suggest reinstating it.
+
 Still open, and hers alone to decide: whether "nearly 9 years" in the
 profile should change. With the Oct 2016 start and the Mar -- Nov 2023
 break, the span from first Axis day to last IndusInd day is 8 years

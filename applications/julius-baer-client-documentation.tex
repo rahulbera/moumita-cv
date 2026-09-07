@@ -1,0 +1,95 @@
+%==============================================================================
+% Motivation letter -- Client Documentation & Account Opening
+% Julius Baer, Zurich
+%
+% Tailored application letter. Shares its preamble with cv.tex and
+% cover_letter.tex so all three documents look identical.
+%
+% Build from the repository root:  make applications/julius-baer-client-documentation.pdf
+%==============================================================================
+
+\documentclass[11pt,a4paper,sans]{moderncv}
+
+%------------------------------------------------------------------------------
+% MODERNCV THEME  (must match cv.tex)
+%------------------------------------------------------------------------------
+\moderncvstyle{classic}
+\moderncvcolor{blue}
+
+\definecolor{cvblue}{RGB}{21,76,143}
+\colorlet{color1}{cvblue}
+\colorlet{color2}{cvblue}
+
+%------------------------------------------------------------------------------
+% PACKAGES
+%------------------------------------------------------------------------------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[english]{babel}
+\usepackage[scale=0.82]{geometry}
+
+\setlength{\hintscolumnwidth}{2.9cm}
+
+%------------------------------------------------------------------------------
+% PERSONAL DATA  (must match cv.tex)
+%------------------------------------------------------------------------------
+\name{Moumita}{Dey}
+\title{BANKING \textbar{} KYC \textbar{} \mbox{AML \& COMPLIANCE}}
+\address{Zurich, Switzerland}{}{}
+\phone[mobile]{+41~76~711~16~39}
+\email{reachmoumita.93@gmail.com}
+\extrainfo{Swiss Permit B}
+\photo[70pt][0.4pt]{resources/photo}
+
+%==============================================================================
+\begin{document}
+
+%------------------------------------------------------------------------------
+% RECIPIENT
+%------------------------------------------------------------------------------
+\recipient{Hiring Manager}{Julius Baer\\Bahnhofstrasse 36\\8001 Zurich}
+\date{\today}
+\opening{Dear Hiring Manager,}
+\closing{Yours sincerely,}
+\enclosure[Enclosed]{curriculum vit\ae{}}
+
+\makelettertitle
+
+I am applying for the client documentation and account opening role in Zurich.
+I am an AML, KYC and financial crime compliance professional with nearly nine
+years in banking, based in Zurich and holding a Swiss B permit, so no
+sponsorship is required.
+
+Reviewing client documentation for completeness and accuracy is the substance
+of what I have done throughout my career. At IndusInd Bank I ran KYC
+verification, remediation and periodic refresh: reviewing files for individuals
+and legal entities, recording what was deficient, and going back to the client
+and to the teams holding the relationship for what was missing. Structured file
+reviews and process improvements on that work reduced documentation errors by
+25\%. Requesting missing documents from the front and answering their questions
+on documentation standards is familiar ground -- I guided branch teams on
+precisely that.
+
+For legal entities I have verified Ultimate Beneficial Ownership, including
+LLPs and private trusts, and checked corporate registration records as part of
+the identification process. I have handled FATCA and CRS requirements at
+onboarding and throughout the relationship, and managed account opening,
+maintenance and closure across the client lifecycle, keeping records
+audit-ready and supporting internal compliance reviews. Much of that work was
+for High Net Worth and affluent clients, where discretion is not optional.
+
+Two things I should be straightforward about. I have not yet worked under
+CDB 20, and my formal education is in Linguistics and English Literature rather
+than a commercial apprenticeship. Against that: your posting asks for three
+years in bank customer documentation and I have nearly nine, across three
+banks. And when I needed the Swiss regulatory framework, I went and learned it
+-- SAQ-recognised AMLA/AMLO-FINMA 2025 training and the Basel Institute on
+Governance course on combating terrorism financing, both on my own initiative.
+I would come to the Code of Conduct the same way. My German is at B1.
+
+I would welcome the chance to discuss how that experience fits your team.
+
+\makeletterclosing
+
+\end{document}

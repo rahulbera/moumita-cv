@@ -12,6 +12,9 @@ reference only and is not compiled.
 
 There is no application code here — the deliverables are `cv.pdf` and
 `cover_letter.pdf`, and both are committed alongside their sources.
+`cover_letter.tex` is the generic template; `applications/` holds letters
+tailored to a specific vacancy, one file per role. Build one with
+`make applications/<name>.pdf`.
 
 ## Workflow
 

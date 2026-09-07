@@ -19,5 +19,13 @@ letter: cover_letter.pdf
 	$(LATEX) $<
 	$(LATEX) $<
 
+# Tailored application letters live in applications/. Build one with e.g.
+#   make applications/client-onboarding-zurich.pdf
+# pdflatex runs from the repo root, so resources/photo resolves unchanged.
+applications/%.pdf: applications/%.tex resources/photo.jpg
+	$(LATEX) -output-directory=applications $<
+	$(LATEX) -output-directory=applications $<
+
 clean:
 	rm -f *.aux *.log *.out *.toc *.fls *.fdb_latexmk *.synctex.gz
+	rm -f applications/*.aux applications/*.log applications/*.out

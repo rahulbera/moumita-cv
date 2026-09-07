@@ -61,10 +61,18 @@ lag the sources.
   new facts come from Moumita, not from Claude.
 - `archive/` is frozen. Read it for provenance; don't edit or compile it.
 
-## Open questions
+## Settled facts
 
-- **Axis Bank dates.** `cv.tex` follows the old `archive/Master1.tex`: one
-  combined `Jul 2016 -- Sep 2022` entry, and HDFC from Oct 2022. The older
-  `archive/employment.tex` disagrees — it splits Axis into Deputy Manager
-  (Jul'19 -- Sept'22) and Assistant Manager (Oct'16 -- Jul'19) and dates
-  HDFC from Sept'22. Unresolved; ask before changing.
+Moumita has confirmed the CV is the source of truth for dates, over both
+`archive/employment.tex` and her LinkedIn profile:
+
+- **HDFC Bank ran Oct 2022 -- Feb 2023.** Her LinkedIn said December 2023;
+  that is wrong and she is correcting it there. This leaves a real gap of
+  roughly Mar -- Nov 2023, which she took as a caregiving career break. The
+  break is recorded on LinkedIn, deliberately not on the CV.
+- **Axis Bank stays one combined entry, `Jul'16 -- Sep'22`.** Her LinkedIn
+  splits it into Deputy Manager and Assistant Manager and starts it in
+  Oct 2016; she is aligning LinkedIn to the CV rather than the reverse.
+
+Still open, and hers alone to decide: whether "nearly 9 years" in the
+profile should become "8+ years" now that the gap is confirmed.

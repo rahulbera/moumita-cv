@@ -70,9 +70,15 @@ Moumita has confirmed the CV is the source of truth for dates, over both
   that is wrong and she is correcting it there. This leaves a real gap of
   roughly Mar -- Nov 2023, which she took as a caregiving career break. The
   break is recorded on LinkedIn, deliberately not on the CV.
-- **Axis Bank stays one combined entry, `Jul'16 -- Sep'22`.** Her LinkedIn
-  splits it into Deputy Manager and Assistant Manager and starts it in
-  Oct 2016; she is aligning LinkedIn to the CV rather than the reverse.
+- **Axis Bank ran `Oct'16 -- Sep'22`, as one combined entry.** The
+  `Jul'16` start inherited from `archive/Master1.tex` was wrong; Moumita
+  confirmed October 2016, which is what her LinkedIn already said. Her
+  LinkedIn also splits the tenure into Deputy Manager and Assistant
+  Manager — that split is fine to keep there, since the combined CV entry
+  names the promotion in its first bullet and carries a `(Promoted)` note.
 
 Still open, and hers alone to decide: whether "nearly 9 years" in the
-profile should become "8+ years" now that the gap is confirmed.
+profile should change. With the Oct 2016 start and the Mar -- Nov 2023
+break, the span from first Axis day to last IndusInd day is 8 years
+6 months, and time actually worked is about 7 years 9 months. She has
+chosen "nearly 9 years" twice; do not keep reopening it.
